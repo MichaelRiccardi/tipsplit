@@ -1,5 +1,10 @@
 <?php
 
+function validInputs()
+{
+    return true; /// TODO: Data validation
+}
+
 function outputSubtotal()
 {
     if(isset($_POST["subtotal"]))
@@ -20,6 +25,25 @@ function outputTipPercentageRadioButtons($tipPercentageOptions, $defaultValue)
     unset($tipPercentage);
 }
 
+function toMoneyFormat($number)
+{
+    return '$' . number_format($number, 2);
+}
+
+function outputTipAndTotal()
+{
+    if(validInputs())
+    {
+        $tip = $_POST["subtotal"] * $_POST["tipPercentage"] / 100;
+        $total = $_POST["subtotal"] + $tip;
+    
+        $displayTip = toMoneyFormat($tip);
+        $displayTotal = toMoneyFormat($total);
+        
+        echo "Tip: {$displayTip}<br>Total: {$displayTotal}";
+    }
+}
+
 ?>
 
 <html>    
@@ -38,6 +62,8 @@ function outputTipPercentageRadioButtons($tipPercentageOptions, $defaultValue)
             </p>
                 
             <p><input type="submit" value="Submit"></p>
+            
+            <p><?php outputTipAndTotal(); ?></p>
                 
         </form>
     </body>

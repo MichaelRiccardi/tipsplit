@@ -9,7 +9,7 @@ Time spent: _**[to be determined]**_ <!--**X** hours spent in total-->
 ## User Stories
 
 The following **required** functionality is complete:
-* [ ] User can enter a bill amount, choose a tip percentage, and submit the form to see the tip and total values.
+* [X] User can enter a bill amount, choose a tip percentage, and submit the form to see the tip and total values.
 * [X] Tip percentage choices use a PHP loop to output three radio buttons.
 * [X] PHP code sets reasonable default values for the form.
 * [ ] PHP code confirms the presence and correct format of submitted values.
