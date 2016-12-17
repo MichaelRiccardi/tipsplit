@@ -7,14 +7,24 @@ class Validator
         return $_SERVER['REQUEST_METHOD'] == 'POST';
     }
     
+    public static function useCustomTipPercentage()
+    {
+         return isset($_POST["tipPercentage"]) && $_POST["tipPercentage"] == "custom";
+    }
+    
     public static function validSubtotal()
     {
         return isset($_POST["subtotal"]) && is_numeric($_POST["subtotal"]) && ($_POST["subtotal"] > 0);
     }
     
+    public static function validCustomTipPercentage()
+    {
+        return isset($_POST["customTipPercentage"]) && is_numeric($_POST["customTipPercentage"]) && ($_POST["customTipPercentage"] > 0);
+    }
+    
     public static function validTipPercentage()
     {
-        return isset($_POST["tipPercentage"]) && is_numeric($_POST["tipPercentage"]);
+        return isset($_POST["tipPercentage"]) && (is_numeric($_POST["tipPercentage"]) || Validator::validCustomTipPercentage());
     }
     
     public static function validSplit()

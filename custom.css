@@ -1,0 +1,63 @@
+h1
+{
+    font-style: italic;
+}
+
+body
+{
+    background-image: url(background.jpg);
+    color: #243d13;
+    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+    zoom:125%;
+}
+
+.container
+{
+    margin: 20px auto !important;
+    padding: 20px !important;
+    width: 375px;
+    border-radius: 25px;
+    border: 2px solid #243d13;
+    background: #8dc970;
+}
+
+.container.tipContainer
+{
+    background: #ccf192;
+    font-weight: bold;
+}
+
+input[name='subtotal']
+{
+    width:100px !important;
+}
+
+input[name='customTipPercentage']
+{
+    text-align: right !important;
+    width: 50px !important;
+}
+
+input[name='split']
+{
+    text-align: right !important;
+    width: 60px !important;
+}
+
+.btn
+{
+    border: 2px solid #243d13;
+    background: #243d13;
+    color: white;
+}
+
+.btn:hover
+{
+    background: #39621e;
+    color: white;
+}
+
+.input-group-addon
+{
+    width: auto !important;
+}

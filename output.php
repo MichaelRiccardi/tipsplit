@@ -1,7 +1,7 @@
 <?php
 
 class Output
-{
+{    
     private static function toMoneyFormat($number)
     {
         return '$' . number_format($number, 2);
@@ -15,44 +15,65 @@ class Output
     public static function split()
     {
         echo Validator::validSplit() ? $_POST["split"] : 1;
-    }
-    
+    }    
 
     public static function radioButtons($tipPercentageOptions, $defaultValue)
     {
         $selectedValue = isset($_POST["tipPercentage"]) ? $_POST["tipPercentage"] : $defaultValue;
+        
+        $customSelection = true;
 
         foreach ($tipPercentageOptions as &$tipPercentage)
         {
             $isSelected = ($tipPercentage == $selectedValue) ? " checked" : "";
-            echo "<input type='radio' name='tipPercentage' value='{$tipPercentage}'{$isSelected}>{$tipPercentage}% ";
-        }       
+            echo "<label class='radio-inline'>
+                    <input type='radio' name='tipPercentage' value='{$tipPercentage}'{$isSelected}> {$tipPercentage}%
+                  </label>";            
+            if($isSelected)
+            {
+                $customSelection = false;
+            }
+        }               
         unset($tipPercentage);
+    }
+    
+    public static function customTipChecked() 
+    {
+        echo Validator::useCustomTipPercentage() ? " checked" : "";
+    }
+    
+    public static function customTipPercentage()
+    {
+        echo Validator::validCustomTipPercentage() ? $_POST["customTipPercentage"] : "";
     }
 
     public static function tipAndTotal()
     {
-        if(Validator::validInputs())
+        $calculated = Calculator::tipAndTotal();
+        
+        if($calculated)
         {
-            $tip = $_POST["subtotal"] * $_POST["tipPercentage"] / 100;
-            $total = $_POST["subtotal"] + $tip;
-            $split = $_POST["split"];
-
-            $displayTip = Output::toMoneyFormat($tip);
-            $displayTotal = Output::toMoneyFormat($total);
-
-            echo "Tip: {$displayTip}<br>Total: {$displayTotal}";
+            echo '<div class="container tipContainer align-middle text-center">';
             
-            if($split > 1)
+            $displayTip = Output::toMoneyFormat($calculated["tip"]);
+            $displayTotal = Output::toMoneyFormat($calculated["total"]);
+            //echo "Tip: {$displayTip}<br>Total: {$displayTotal}";
+
+            if(isset($calculated["splitTip"]) && isset($calculated["splitTotal"]))
             {
-                $splitTip = $tip / $split;
-                $splitTotal = $total / $split;
+                echo "<div class='col-xs-6'>Tip: {$displayTip}<br>Total: {$displayTotal}</div>";
                 
-                $displaySplitTip = Output::toMoneyFormat($splitTip);
-                $displaySplitTotal = Output::toMoneyFormat($splitTotal);
+                $displaySplitTip = Output::toMoneyFormat($calculated["splitTip"]);
+                $displaySplitTotal = Output::toMoneyFormat($calculated["splitTotal"]);
                 
-                echo "<br><br>Tip each: {$displaySplitTip}<br>Total each: {$displaySplitTotal}";
+                echo "<div class='col-xs-6'>Tip each: {$displaySplitTip}<br>Total each: {$displaySplitTotal}</div>";
             }
+            else
+            {
+                echo "<div class='col-xs-12'>Tip: {$displayTip}<br>Total: {$displayTotal}</div>";
+            }
+            
+            echo '</div>';
         }
     }
     
