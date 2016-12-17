@@ -1,10 +1,21 @@
 <?php
 
-function outputTipPercentageRadioButtons($tipPercentageOptions)
+function outputSubtotal()
 {
+    if(isset($_POST["subtotal"]))
+    {
+        echo $_POST["subtotal"];
+    }
+}
+
+function outputTipPercentageRadioButtons($tipPercentageOptions, $defaultValue)
+{
+    $selectedValue = isset($_POST["tipPercentage"]) ? $_POST["tipPercentage"] : $defaultValue;
+    
     foreach ($tipPercentageOptions as &$tipPercentage)
     {
-        echo "<input type='radio' name='tipPercentage' value='{$tipPercentage}'>{$tipPercentage}% ";
+        $isSelected = ($tipPercentage == $selectedValue) ? " checked" : "";
+        echo "<input type='radio' name='tipPercentage' value='{$tipPercentage}'{$isSelected}>{$tipPercentage}% ";
     }       
     unset($tipPercentage);
 }
@@ -20,9 +31,9 @@ function outputTipPercentageRadioButtons($tipPercentageOptions)
         <form method="post">
             <h1>tipsplit</h1>
 
-            <p>Bill subtotal:  $<input name="subtotal" type="number"></p>
+            <p>Bill subtotal:  $<input name="subtotal" type="number" step="any" value="<?php outputSubtotal() ?>"></p>
 
-            <p>Tip percentage: <?php outputTipPercentageRadioButtons([ 10, 15, 20 ]); ?>
+            <p>Tip percentage: <?php outputTipPercentageRadioButtons([ 10, 15, 20 ], 15); ?>
             
             </p>
                 
