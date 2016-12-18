@@ -1,8 +1,3 @@
-h1
-{
-    font-style: italic;
-}
-
 body
 {
     background-image: url(background.jpg);
@@ -25,6 +20,12 @@ body
 {
     background: #ccf192;
     font-weight: bold;
+}
+
+h1
+{
+    font-style: italic;
+    font-weight: 600;
 }
 
 input[name='subtotal']
@@ -57,7 +58,16 @@ input[name='split']
     color: white;
 }
 
-.input-group-addon
-{
-    width: auto !important;
+/* Bootstrap CSS bug was breaking the form on small screens,
+   so the below styles for screens >= 768px are being applied
+   globally to patch the issue. */
+
+.form-inline .input-group {
+    display: inline-table;
+    vertical-align: middle;
+}
+.form-inline .input-group .input-group-addon,
+.form-inline .input-group .input-group-btn,
+.form-inline .input-group .form-control {
+    width: auto;
 }
