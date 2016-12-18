@@ -10,7 +10,7 @@ require "output.php";
     <head>
         <title>tipsplit - PHP Tip Calculator</title>
         
-        <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=0.8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
         
         <!-- Bootstrap: Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -46,7 +46,7 @@ require "output.php";
                         </label>
                     </div>
                     <div class="input-group">
-                        <input type='text' class='form-control' name='customTipPercentage' id='customTipPercentage' onfocus="selectCustom()" value='<?php Output::customTipPercentage() ?>'>
+                        <input type='number' class='form-control' name='customTipPercentage' id='customTipPercentage' onfocus="selectCustom()" value='<?php Output::customTipPercentage() ?>'>
                         <span class='input-group-addon'>%</span>
                     </div>
                 </div>

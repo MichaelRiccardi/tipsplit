@@ -1,11 +1,11 @@
 body
 {
     background-image: url(background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
     color: #243d13;
     font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
-    zoom:125%;
 }
-
 .container
 {
     margin: 20px auto !important;
@@ -70,4 +70,10 @@ input[name='split']
 .form-inline .input-group .input-group-btn,
 .form-inline .input-group .form-control {
     width: auto;
+}
+@media screen and (min-width: 768px) {
+    body
+    {
+        zoom:125%;
+    }
 }
