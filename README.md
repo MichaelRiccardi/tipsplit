@@ -4,7 +4,7 @@
 
 Submitted by: **Michael Riccardi**
 
-Time spent: _**8 hours spent in total**_ <!--**X** hours spent in total-->
+Time spent: **9 hours spent in total**
 
 ## User Stories
 
@@ -39,7 +39,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Any challenges encountered while building the app will be added here.
+Implementing the PHP functionality was not really challenging once I got a good structure set up. I was surprised to find more quirks with implementing the UI and getting everything to display how I wanted. While Bootstrap is a powerful tool for CSS, it is also somewhat complex to use and a lot of the custom styling I simply wrote myself in `custom.css`.
 
 ## License
 
@@ -56,3 +56,10 @@ Any challenges encountered while building the app will be added here.
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+    
+**External Resource:**
+
+    Bootstrap v3.3.7 (http://getbootstrap.com)
+    Copyright 2011-2016 Twitter, Inc.
+    Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+    
