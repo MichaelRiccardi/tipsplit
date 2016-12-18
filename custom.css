@@ -28,7 +28,7 @@ h1
     font-weight: 600;
 }
 
-input[name='subtotal']
+input.subtotal
 {
     width:100px !important;
 }
@@ -36,7 +36,7 @@ input[name='subtotal']
 input[name='customTipPercentage']
 {
     text-align: right !important;
-    width: 50px !important;
+    width: 60px !important;
 }
 
 input[name='split']

@@ -21,8 +21,8 @@ The following **optional** features are implemented:
 * [X] Add support for splitting the tip and total
 
 The following **additional** features are implemented:
-
-* [ ] List anything else that you can get done to improve the functionality!
+* [X] Clean UI that is aesthetically pleasing and displays well on varied screen sizes, including mobile devices.
+* [X] For discounted checks, the user can enter the full and discounted amounts and have a tip calculated based on the original price, but the total based on the discount. it ('It is common practice to tip on the full amount of a meal that has been discounted. The tip is intended as a "thank you" to the restaurant staff, while it's typically the business that applies the discount - the staff performs the same service no matter what the final check is.' Source: [Business Insider](http://www.businessinsider.com/how-to-tip-on-discounted-meals-2012-3))
 
 ## Video Walkthrough
 

@@ -12,12 +12,30 @@ class Output
         echo Validator::validSubtotal() ? $_POST["subtotal"] : "";
     }
     
+    public static function discountedSubtotal()
+    {
+        echo Validator::validDiscountedSubtotal() ? $_POST["discountedSubtotal"] : "";
+    }
+    
     public static function split()
     {
         echo Validator::validSplit() ? $_POST["split"] : 1;
     }    
 
-    public static function radioButtons($tipPercentageOptions, $defaultValue)
+    public static function discountRadioButtons()
+    {
+        $yes = (isset($_POST["discount"]) && $_POST["discount"] == "Yes") ? " checked" : "";
+        $no = (!isset($_POST["discount"]) || $_POST["discount"] == "No") ? " checked" : "";
+        
+        echo "<label class='radio-inline'>
+                    <input type='radio' onchange='updateDiscountFields()' name='discount' id='discountYes' value='Yes'{$yes}> Yes
+              </label>
+              <label class='radio-inline'>
+                    <input type='radio' onchange='updateDiscountFields()' name='discount' id='discountNo' value='No'{$no}> No
+              </label>";
+    }
+    
+    public static function tipPercentageRadioButtons($tipPercentageOptions, $defaultValue)
     {
         $selectedValue = isset($_POST["tipPercentage"]) ? $_POST["tipPercentage"] : $defaultValue;
         

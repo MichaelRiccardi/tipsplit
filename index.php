@@ -21,24 +21,39 @@ require "output.php";
         
     </head>
     
-    <body onload="updatePersonOrPeople()">
+    <body onload="updatePersonOrPeople(); updateDiscountFields()">
         <div class="container align-middle">
             <form method="post">
                 <h1 class="text-center">tipsplit</h1><br>
                 <h4><?php Output::errorMessage() ?></h4>
 
                 <div class="form-group form-inline">
-                    <label for="subtotal">Bill subtotal:</label>
+                    <label id="billSubtotalLabel" for="subtotal">Bill subtotal:</label>
                     <div class="input-group">
                         <span class="input-group-addon">$</span>
-                        <input class="form-control" name="subtotal" type="number" step="any" value="<?php Output::subtotal() ?>">
+                        <input class="form-control subtotal" name="subtotal" type="number" step="any" value="<?php Output::subtotal() ?>">
                     </div>
                 </div>
+                
+                <div class="form-group form-inline">
+                    <label for="subtotal">Any discounts?&nbsp;&nbsp;</label>
+                    <div class="input-group">
+                        <?php Output::discountRadioButtons(); ?>
+                    </div>
+                </div>
+                
+                <div id="discountedSubtotalDiv" class="form-group form-inline" style="display: none;">
+                    <label for="subtotal">Discounted subtotal:</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input class="form-control subtotal" name="discountedSubtotal" type="number" step="any" value="<?php Output::discountedSubtotal() ?>">
+                    </div>
+                </div> 
 
                 <div class="form-group form-inline">
-                    <label for="subtotal">Tip percentage:</label><br>
+                    <label for="subtotal">Tip percentage: <br>
                     <div class="input-group">
-                        <?php Output::radioButtons([ 10, 15, 20 ], 15); ?>
+                        <?php Output::tipPercentageRadioButtons([ 10, 15, 20 ], 15); ?>
                     </div>
                     <div class="input-group">
                         <label class='radio-inline'>

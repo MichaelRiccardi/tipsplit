@@ -7,9 +7,11 @@ class Calculator
         if(Validator::validInputs())
         {    
             $tipPercentage = Validator::useCustomTipPercentage() ? $_POST["customTipPercentage"] : $_POST["tipPercentage"];
+            $tipSubtotal = $_POST["subtotal"];
+            $actualSubtotal = Validator::noDiscount() ? $_POST["subtotal"] : $_POST["discountedSubtotal"];
             
-            $display["tip"] = $_POST["subtotal"] * $tipPercentage / 100;
-            $display["total"] = $_POST["subtotal"] + $display["tip"];
+            $display["tip"] = $tipSubtotal * $tipPercentage / 100;
+            $display["total"] = $actualSubtotal + $display["tip"];
             $split = $_POST["split"];
             
             if($split > 1)
