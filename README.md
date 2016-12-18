@@ -35,6 +35,8 @@ Here's a walkthrough of implemented user stories:
 
 <img src='http://i.imgur.com/XAUiywQ.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
+**Additionally, I have hosted a live version of tipsplit on [my website](http://MichaelRiccardi.com/tipsplit).**
+
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
